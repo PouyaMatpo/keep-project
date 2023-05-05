@@ -1,0 +1,23 @@
+.v-card {
+  transition: opacity .4s ease-in-out;
+}
+.v-card:not(.on-hover) {
+  opacity: 0.8;
+ }
+
+.show-btns {
+  color: rgb(0, 0, 0) !important;
+  
+}
+.show-btns.darkTheme{
+  color: rgb(255, 255, 255) !important;
+}
+.show-btns.lightTheme{
+  color: rgb(5, 5, 5) !important;
+}
+.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot{
+  box-shadow: none !important;
+ }
+ .v-application--is-ltr .v-list-item__action:last-of-type:not(:only-child), .v-application--is-ltr .v-list-item__avatar:last-of-type:not(:only-child), .v-application--is-ltr .v-list-item__icon:last-of-type:not(:only-child) {
+  margin-left: 0 !important;
+}
