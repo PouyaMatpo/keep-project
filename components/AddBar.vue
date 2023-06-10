@@ -1,5 +1,5 @@
 <template >
-  <v-card class="mx-auto my-20" max-width="500" v-click-outside="save">
+  <v-card class="mx-auto rounded-lg my-20" max-width="500" v-click-outside="save">
     <v-form ref="form" lazy-validation>
       <v-text-field required v-model="form.title" :rules="rules.title" dense solo single-line label="Take a Note..."
         hide-details="" hide-spin-buttons placeholder="Title" @click="displayitem = true" autocomplete="off" full-width
@@ -48,4 +48,3 @@ export default {
   },
 }
 </script>
-<style scoped></style>

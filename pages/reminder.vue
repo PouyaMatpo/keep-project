@@ -1,21 +1,8 @@
 <template>
-    <div class="back-color">
+    <div>
       <header> <app-bar /></header>
         <v-container fluid>
             <add-bar />
-            <!-- <add-task-item /> -->
-            <v-card class="px-36" max-width="100%" flat>
-                <v-list>
-                    <v-subheader class="pa-5">in progress Tasks </v-subheader>
-                    <v-list-item-group class="flex basis-full flex-row flex-wrap items-start opacity-100">
-                        <task-item v-for="(task, i) in pendingTasks" :task="task" :key="i" />
-                    </v-list-item-group>
-                    <v-subheader class="mt-10 pa-5">Done Tasks</v-subheader>
-                    <v-list-item-group class="flex basis-full flex-row flex-wrap items-start opacity-100">
-                        <task-item v-for="(task, i) in doneTasks" :key="i" :task="task" />
-                    </v-list-item-group>
-                </v-list>
-            </v-card>
             <v-card class="px-36" max-width="100%" flat v-if="resultQuery">
                 <v-list>
                     <v-subheader class="pa-5">Tasks </v-subheader>
@@ -41,6 +28,16 @@
                     </v-list-item-group>
                 </v-list> -->
             </v-card>
+            <div class="flex flex-col mt-48">
+                <div class="w-full text-center">
+                    <v-icon size="140">
+                        mdi-bell-ring-outline
+                    </v-icon>
+                </div>
+                <div class="w-full text-center text-3xl pt-3">
+                    Notes with upcoming reminders appear here
+                </div>
+            </div>
         </v-container>
     </div>
 </template>
@@ -79,8 +76,3 @@ export default
         }
     }
 </script>
-<style lang="scss">
-.back-color {
-    background-color: #fde86a;
-}
-</style>
