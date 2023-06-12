@@ -1,12 +1,12 @@
 <template>
-    <div class="back-color">
-      <header> <app-bar /></header>
+    <div class="bg-red-300 h-full">
+        <header> <app-bar /></header>
         <v-container fluid>
             <add-bar />
             <!-- <add-task-item /> -->
-            <v-card class="px-36" max-width="100%" flat>
-                <v-list>
-                    <v-subheader class="pa-5">in progress Tasks </v-subheader>
+            <v-card class="px-36 border-none !bg-red-300" max-width="100%" flat>
+                <v-list class="!bg-red-300">
+                    <v-subheader class="pa-5 !bg-red-300">in progress Tasks </v-subheader>
                     <v-list-item-group class="flex basis-full flex-row flex-wrap items-start opacity-100">
                         <task-item v-for="(task, i) in pendingTasks" :task="task" :key="i" />
                     </v-list-item-group>
@@ -16,8 +16,8 @@
                     </v-list-item-group>
                 </v-list>
             </v-card>
-            <v-card class="px-36" max-width="100%" flat v-if="resultQuery">
-                <v-list>
+            <v-card class="px-36 !bg-red-300 border-none" max-width="100%" flat v-if="resultQuery">
+                <v-list class="!bg-red-300">
                     <v-subheader class="pa-5">Tasks </v-subheader>
                     <v-list-item-group class="flex basis-full flex-row flex-wrap items-start opacity-100">
                         <task-item v-for="(task, i) in resultQuery" :task="task" :key="i" id="text">
@@ -29,8 +29,8 @@
                     </v-list-item-group>
                 </v-list>
             </v-card>
-            <v-card v-else max-width="100%" flat class="!flex px-36">
-                <v-list>
+            <v-card v-else max-width="100%" flat class="!flex px-36 !bg-red-300 border-none">
+                <v-list class="!bg-red-300">
                     <v-list-item-group class="flex basis-full flex-row flex-wrap items-start opacity-100">
                         <task-item v-for="(task, i) in pendingTasks" :task="task" :key="i" id="text" />
                     </v-list-item-group>
