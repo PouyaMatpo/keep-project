@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full flex items-center justify-center !bg-red-200">
+    <div class="h-full flex items-center justify-center">
         <div class="w-[500px] h-[500px] mt-28 rounded-lg">
             <nuxt-link to="/" class="flex items-center">
                 <v-img contain width="80" height="80" src="/keep_2020q4_48dp.png"></v-img>

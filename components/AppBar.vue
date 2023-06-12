@@ -1,20 +1,20 @@
 <template >
     <v-row align="center" class="overflow-hidden">
         <v-col cols="12">
-            <v-app-bar app clipped-left elevation="1" flat color="!bg-red-200">
+            <v-app-bar app clipped-left elevation="1" flat>
                 <v-text-field v-model="searchQuery" v-if="checkStats" light solo prepend-inner-icon="mdi-arrow-left-thin"
-                    background-color="grey lighten-4" placeholder="Search" flat hide-details clearable autofocus
+                 placeholder="Search" flat hide-details clearable autofocus
                     class="rounded-lg d-flex d-sm-none " @click:prepend-inner="checkStats = false"></v-text-field>
                 <v-app-bar-nav-icon class="ml-0.5 " v-if="visible" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
                 <v-toolbar-title v-if="visible">
                     <nuxt-link to="/" class="flex items-center ">
                         <v-img width="35" height="35" src="/keep_2020q4_48dp.png"></v-img>
-                        <p class="mb-0 pl-0.5 text-h6 font-weight-regular grey--text">Keep</p>
+                        <p v-if="$vuetify.breakpoint.mdAndUp" class="mb-0 pl-0.5 text-h6 font-weight-regular black--text">Keep</p>
                     </nuxt-link>
                 </v-toolbar-title>
-                <v-text-field v-model="searchQuery" light solo background-color="grey lighten-4" placeholder="Search" flat
+                <v-text-field v-model="searchQuery" light solo placeholder="Search" flat
                     hide-details clearable autofocus class="rounded-lg d-none d-sm-flex  ml-10"> <v-icon
-                        slot="prepend-inner" color="grey" class="cursor-pointer"> mdi-magnify </v-icon> </v-text-field>
+                        slot="prepend-inner" class="cursor-pointer"> mdi-magnify </v-icon> </v-text-field>
                 <v-spacer></v-spacer>
                 <v-btn icon class="d-flex d-sm-none" @click="checkStats = !checkStats" v-if="!checkStats">
                     <v-icon ref="icon">mdi-magnify</v-icon>
@@ -22,7 +22,7 @@
                 <v-dialog v-model="dialog" persistent max-width="290">
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn title="Restart items" v-bind="attrs" icon v-on="on">
-                            <v-icon color="grey" ref="icon">mdi-refresh</v-icon>
+                            <v-icon ref="icon">mdi-refresh</v-icon>
                         </v-btn>
                     </template>
                     <v-card>
@@ -32,27 +32,27 @@
                         <v-card-text>you wanna delete all your data?</v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
-                            <v-btn color="grey" text @click="dialog = false">
+                            <v-btn text @click="dialog = false">
                                 Disagree
                             </v-btn>
-                            <v-btn color="grey" text @click="dialog = false; ResetAll()">
+                            <v-btn text @click="dialog = false; ResetAll()">
                                 Agree
                             </v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-dialog>
                 <v-btn icon title="Setting">
-                    <v-icon color="grey" ref="icon">mdi-cog</v-icon>
+                    <v-icon ref="icon">mdi-cog</v-icon>
                 </v-btn>
                 <v-btn icon title="Change Stats" @click="toggleIcon">
-                    <v-icon color="grey" ref="icon">{{ icon }}</v-icon>
+                    <v-icon ref="icon">{{ icon }}</v-icon>
                 </v-btn>
                 <div class="text-center">
                     <v-menu offset-y>
                         <template v-slot:activator="{ on, attrs }">
                             <v-btn icon title="Change Stats" v-bind="attrs" v-on="on">
                                 <v-avatar size="32">
-                                    <v-icon color="grey" ref="icon">mdi-login-variant</v-icon>
+                                    <v-icon ref="icon">mdi-login-variant</v-icon>
                                 </v-avatar>
                             </v-btn>
                         </template>
@@ -65,7 +65,7 @@
                 </div>
             </v-app-bar>
         </v-col>
-        <v-navigation-drawer color="!bg-red-200" mini-variant-width="100" v-model="drawer" expand-on-hover app mini-variant clipped>
+        <v-navigation-drawer mini-variant-width="100" v-model="drawer" expand-on-hover app mini-variant clipped>
             <v-list nav dense>
                 <v-list-item-group v-model="group">
                     <v-list-item>
@@ -73,11 +73,11 @@
                             <nuxt-link class="black--text" to="/">
                                 <div class="flex flex-row items-center pl-4">
                                     <v-btn icon>
-                                        <v-icon size="30" color="grey">
+                                        <v-icon size="30">
                                             mdi-lightbulb-outline
                                         </v-icon>
                                     </v-btn>
-                                    <div class="text-xl ml-6 grey--text">
+                                    <div class="text-xl ml-6">
                                         Notes
                                     </div>
                                 </div>
@@ -89,11 +89,11 @@
                             <nuxt-link class="black--text" to="/reminder">
                                 <div class="flex flex-row items-center pl-4">
                                     <v-btn icon>
-                                        <v-icon size="30" color="grey">
+                                        <v-icon size="30">
                                             mdi-bell-ring-outline
                                         </v-icon>
                                     </v-btn>
-                                    <div class="text-xl ml-6 grey--text">
+                                    <div class="text-xl ml-6">
                                         Reminders
                                     </div>
                                 </div>
@@ -104,11 +104,11 @@
                         <v-list-item-title class="py-4">
                             <div class="flex flex-row items-center pl-4">
                                 <v-btn icon>
-                                    <v-icon size="30" color="grey">
+                                    <v-icon size="30">
                                         mdi-pencil-outline
                                     </v-icon>
                                 </v-btn>
-                                <div class="text-xl ml-6 grey--text">
+                                <div class="text-xl ml-6">
                                     Edit labels
                                 </div>
                             </div>
@@ -119,11 +119,11 @@
                             <nuxt-link class="black--text" to="/archive">
                                 <div class="flex flex-row items-center pl-4">
                                     <v-btn icon to="/archive">
-                                        <v-icon size="30" color="grey">
+                                        <v-icon size="30">
                                             mdi-archive-arrow-down-outline
                                         </v-icon>
                                     </v-btn>
-                                    <div class="text-xl ml-6 grey--text">
+                                    <div class="text-xl ml-6">
                                         Archive
                                     </div>
                                 </div>
@@ -135,11 +135,11 @@
                             <nuxt-link class="black--text" to="/trash">
                                 <div class="flex flex-row items-center pl-4">
                                     <v-btn icon>
-                                        <v-icon size="30" color="grey">
+                                        <v-icon size="30">
                                             mdi-trash-can-outline
                                         </v-icon>
                                     </v-btn>
-                                    <div class="text-lg ml-6 grey--text">
+                                    <div class="text-lg ml-6">
                                         Trash
                                     </div>
                                 </div>

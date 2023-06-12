@@ -31,3 +31,8 @@ export default {
 
 }
 </script>
+<style lang="scss">
+.back{
+  background-color: #202124;
+}
+</style>
