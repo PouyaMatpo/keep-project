@@ -1,41 +1,31 @@
 <template >
     <div>
-        <v-snackbar
-                v-model="snackbarStats"
-                :timeout="timeout"
-            >
+        <v-snackbar v-model="snackbarStats" :timeout="timeout">
 
-                <template v-slot:action="{ attrs }">
-                <v-btn
-                    :color="snackColor"
-                    text
-                    v-bind="attrs"
-                    @click="snackbarStats = false"
-                >
+            <template v-slot:action="{ attrs }">
+                <v-btn :color="snackColor" text v-bind="attrs" @click="snackbarStats = false">
                     Close
                 </v-btn>
-                </template>
-            </v-snackbar >
+            </template>
+        </v-snackbar>
     </div>
 </template>
 <script>
 export default {
-    data:()=>({
-        
+    data: () => ({
+
         snackbarStats: '',
-        snackbarText:'',
+        snackbarText: '',
         timeout: 2200,
-        snackColor :'' ,
+        snackColor: '',
 
     }),
-    props:{
-        mySnack:{
-            typeof : Object,
-            default :null
-    }
+    props: {
+        mySnack: {
+            typeof: Object,
+            default: null
+        }
     },
 }
 </script>
-<style >
-    
-</style>
+<style ></style>
